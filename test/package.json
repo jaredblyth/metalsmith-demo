@@ -1,0 +1,30 @@
+{
+  "name": "metal",
+  "version": "0.0.1",
+  "description": "Metalsmith based site",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-execute": "^0.2.2",
+    "jade": "~1.5.0",
+    "metalsmith": "~0.9.0",
+    "metalsmith-assets": "0.0.1",
+    "metalsmith-collections": "~0.6.0",
+    "metalsmith-markdown": "~0.2.1",
+    "metalsmith-more": "~0.2.0",
+    "metalsmith-paginate": "~0.2.1",
+    "metalsmith-permalinks": "~0.3.2",
+    "metalsmith-templates": "~0.5.2",
+    "moment": "~2.8.1"
+  },
+  "dependencies": {
+    "send": "~0.8.1",
+    "connect": "^2.17.1"
+  }
+}

@@ -1,0 +1,40 @@
+extends layouts/default
+
+block content
+  h3 Posts
+
+  a.btn.btn-sm.btn-default(href="/feeds/rss2/posts.xml") RSS
+
+  != contents
+
+  ul.list-group
+    each post in collections.posts.slice(pagination.start, pagination.end + 1)
+      li.list-group-item
+        h4.list-group-item-heading= post.title
+          span.badge.badge-default.pull-right= helpers.moment.utc(post.date).format('YYYY-MM-DD')
+        != post.less
+        a.btn.btn-sm.btn-primary(href=post.path) Read more...
+        .row
+          .col-sm-6
+            if post.tags
+              h5 Tags
+              each tag in post.tags
+                a.label.label-default(href='/tags/' + tag.toLowerCase() + '/')= tag
+          .col-sm-6
+            if post.categories
+              h5 Categories
+              each category in post.categories
+                a.label.label-info(href='/categories/' + category.toLowerCase() + '/')= category
+
+  - var prevUrl = (pagination.prev) ? pagination.prev.path : null;
+  - prevUrl = (prevUrl === 'blog') ? '/blog/' : prevUrl;
+  - var nextUrl = (pagination.next && pagination.next.path) ? pagination.next.path : null;
+
+  ul.pager
+    li.previous(class=(prevUrl ? '': 'disabled'))
+      a(href=prevUrl) &larr; Older
+    li.next(class=(nextUrl ? '': 'disabled'))
+      a(href=nextUrl) Newer &rarr;
+
+
+

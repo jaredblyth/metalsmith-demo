@@ -1,0 +1,14 @@
+extends ../layouts/default
+
+block content
+  h2= taxonomy.typeTitle + ': '
+    span.label.label-info= taxonomy.term
+
+  a.btn.btn-default(href="/#{taxonomy.type}/#{taxonomy.term.toLowerCase()}/feed.xml") RSS
+
+  .list-group
+    each item in taxonomy.items
+      a.list-group-item(href=item.path)
+        span.badge= helpers.moment.utc(item.date).format('YYYY-MM-DD')
+        = item.title
+

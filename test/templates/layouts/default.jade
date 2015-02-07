@@ -1,0 +1,27 @@
+doctype html
+html
+  head
+    include ./includes/head
+  body
+    .container
+      .jumbotron
+        h1= site.title
+        p= site.description
+      .col-sm-8
+        block content
+      .col-sm-4
+        h3 Latest posts
+        .list-group
+        each post in collections.posts
+          a.list-group-item(href=post.path)
+            span.badge.badge-default= helpers.moment.utc(post.date).format('YYYY-MM-DD')
+            = post.title
+
+    nav.navbar.navbar-default.navbar-fixed-top(role='navigation')
+      .container
+        .navbar-header
+          a.navbar-brand(href='/')= site.title
+        .collapse.navbar-collapse#navbar-collapse
+          ul.nav.navbar-nav
+            li: a(href='/blog/') Blog
+    include ./includes/footer

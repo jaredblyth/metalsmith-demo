@@ -1,0 +1,1 @@
+Example of an app built using MetalSmith

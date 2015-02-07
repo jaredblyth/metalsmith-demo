@@ -1,0 +1,13 @@
+doctype xml
+rss(version='2.0')
+  channel
+    title= site.title + ': ' + title
+    description= site.description
+    link= site.link
+    each item in feedCollection.slice(0, 5)
+      item
+        title= item.title
+        pubDate= helpers.moment.utc(item.date).format('ddd, DD MMM YYYY HH:mm:ss ZZ')
+        description= item.less
+        link= site.link + item.path
+        guid= site.link + item.path

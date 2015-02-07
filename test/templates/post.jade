@@ -1,0 +1,20 @@
+extends layouts/default
+
+block content
+  h2= title
+  span.label.label-primary= helpers.moment.utc(date).format('YYYY-MM-DD')
+
+  if tags
+    br
+    strong= 'Tags: '
+    each tag in tags
+      a.label.label-default(href='/tags/' + tag.toLowerCase() + '/')= tag
+
+  if categories
+    br
+    strong= 'Categories: '
+    each category in categories
+      a.label.label-info(href='/categories/' + category.toLowerCase() + '/')= category
+
+  hr
+  != contents
